@@ -20,7 +20,7 @@ namespace ApiECommerce.Controllers
         {
             IEnumerable<Product> _products;
 
-            if (Search == "categoria" && categoryId != null)
+            if (Search == "category" && categoryId != null)
             {
                 _products = await _productRepository.GetProductsByCategoryAsync(categoryId.Value);
             }
@@ -28,7 +28,7 @@ namespace ApiECommerce.Controllers
             {
                 _products = await _productRepository.GetPopularProductsAsync();
             }
-            else if (Search == "maisvendido")
+            else if (Search == "mostsold")
             {
                 _products = await _productRepository.GetPopularProductsAsync();
             }

@@ -30,6 +30,7 @@ namespace ApiECommerce.Controllers
         public async Task<IActionResult> Register([FromBody] User user)
         {
             var checkUser = await _appDbContext.Users.FirstOrDefaultAsync(u => u.Email == user.Email);
+
             if (checkUser != null)
             {
                 return BadRequest("Já existe um utilizador com este email.");
